@@ -460,6 +460,7 @@ overflow-x: hidden;
 		</p>
 		</div>
 -->
+
 		</div>
 
 
@@ -475,7 +476,8 @@ overflow-x: hidden;
 
  <?php
  if (htmlspecialchars($_GET["incidenza"])=="0")	echo 'Covid19 - Progressivo contagio Province.</br>Casi totali' ?>
-</b></p></div>
+</b></p>
+</div>
 <!--
 <div id="logoreg" style="leaflet-popup-content-wrapper">
 <a href="https://infogram.com/coronavirus-per-regioni-1h7v4p8713j86k0?live" target="_blank"><img src="logoreg.png" width="80px" title="infografica" alt="infografica"></a>

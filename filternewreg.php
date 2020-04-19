@@ -119,7 +119,7 @@
 for (var i = 0; i < response.length; i++) {
 
 if (response[i].denominazione_regione.includes("Valle")) response[i].denominazione_regione="Valle d_Aosta";
-//console.log(response[i].denominazione_regione);
+console.log(response[i].denominazione_regione);
 }
 
 

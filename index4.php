@@ -994,11 +994,11 @@ function addDataToMap(value) {
 		var percentualetmp=feature.properties.percentualeoccupazioneletti*100;
 		var perc=percentualetmp.toFixed(2);
 		var reg=feature.properties.Regione;
-
-			reg=feature.properties.Regione.replace("Valle d'Aosta","Valle d_Aosta");
+		console.log(reg);
 			reg=feature.properties.Regione.replace("Emilia Romagna","Emilia-Romagna");
+			reg=feature.properties.Regione.replace("'","_");
 
-		console.log(feature.properties.totalicasiattiviregione);
+			console.log(reg);
 			var popupString = '<div class="popup">';
 			<?php if (htmlspecialchars($_GET["incidenza"])=="1"){
 				echo "popupString += '<b>' + feature.properties.Regione + '</b><br />';";
