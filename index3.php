@@ -170,6 +170,18 @@ border-radius: 10px;
 	animation-name: example;
   animation-duration: 4s;
 }
+#infodivfocus{
+font-family: Titillium Web, Arial, Sans-Serif;
+padding: 8px;
+font-size: 10px;
+top: 55px;
+left:42px;
+
+max-height: 45px;
+max-width: 150px;
+position: fixed;
+
+}
 div {
   font-family: Titillium Web, Arial, Sans-Serif;
 	font-size: 13px;
@@ -625,6 +637,9 @@ input[type=range]:focus::-ms-fill-upper {
 </div>
 -->
 <div>
+	<div id="infodivfocus" style="leaflet-popup-content-wrapper">
+	<a href="http://www.piersoft.it/covid19/focusdecessi.php" target="_blank" ><img src="tassimortalità.png" width="190px" title="mapnewcases" alt="mapnewcases"></a>
+
 <?php if (htmlspecialchars($_GET["incidenza"])=="2"){
 	echo '<div id="logomappa" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=0" ><img src="mapcasi2.png" width="80px" title="mappacasi" alt="mappacasi"></a>';
@@ -1431,7 +1446,7 @@ var casistica = [];
 	function calcPropRadius(attributeValue) {
 
 
-			var scaleFactor = 0.1;
+			var scaleFactor = 0.05;
 			var area = attributeValue * scaleFactor;
 			return Math.sqrt(area/Math.PI)*2;
 		}
