@@ -1,7 +1,10 @@
 <?php
-// coronavirus_import-timeline_reg
-$contenuto1=file_get_contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vSRoFrktiAAw7mNVG_K_xcXWmNHNY25cP7hudVa8Pm6JzOSpF1HMoy-Da3A03kaBEX3mWNvtUY-WMs_/pub?gid=1923702993&single=true&output=csv");
-//echo $file;
+// coronavirus_import-timeline_reg sheet2 (1923702993)
+// prova --> 59550806
+//https://docs.google.com/spreadsheets/d/e/2PACX-1vSRoFrktiAAw7mNVG_K_xcXWmNHNY25cP7hudVa8Pm6JzOSpF1HMoy-Da3A03kaBEX3mWNvtUY-WMs_/pub?gid=1923702993&single=true&output=csv
+$contenuto1=file_get_contents("https://docs.google.com/spreadsheets/d/e/2PACX-1vSRoFrktiAAw7mNVG_K_xcXWmNHNY25cP7hudVa8Pm6JzOSpF1HMoy-Da3A03kaBEX3mWNvtUY-WMs_/pub?gid=1000241216&single=true&output=csv");
+//echo $contenuto1;
+
 
 $file1="/usr/www/piersoft/covid19/datageoreg.txt";
 
@@ -21,7 +24,7 @@ $out = Array(
 );
 
 /* First row is a heading. This is our key. */
-$keys = fgetcsv($fh, 1000, ",");
+$keys = fgetcsv($fh, 5000, ",");
 $keys = array_flip($keys);
 $colonne=0;
 
@@ -32,8 +35,8 @@ foreach ($keys as $key => $value) {
 //echo $colonne;
 
 
-while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
-
+while (($data = fgetcsv($fh, 3000, ",")) !== FALSE) {
+if (strpos($data[2], '.') !== false && strlen($data[0]) >0) {
 	$entry = Array(
 		'type' => 'Feature',
 		'geometry' => Array(
@@ -52,11 +55,10 @@ while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
 //echo count($colonne1);
 	for ($i=1; $i < count($colonne1); $i++) {
 
-
-		$entry['properties'][$colonne1[$i]]=(int)$data[$i+2];
-	//	array_push($entry['properties'],$data[$i]);
+	if ($colonne1[$i] !==440) $entry['properties'][$colonne1[$i]]=(int)$data[$i+2];
 	}
 	$out['features'][] = $entry;
+}
 }
 
 //var_dump($colonne);

@@ -183,6 +183,18 @@ position: fixed;
 
 
 }
+#infodivfocuscom{
+font-family: Titillium Web, Arial, Sans-Serif;
+padding: 8px;
+font-size: 10px;
+top: 90px;
+left:42px;
+
+max-height: 45px;
+max-width: 150px;
+position: fixed;
+
+}
 div {
   font-family: Titillium Web, Arial, Sans-Serif;
 	font-size: 13px;
@@ -627,6 +639,9 @@ input[type=range]:focus::-ms-fill-upper {
 </div>
 -->
 <div>
+	<div id="infodivfocuscom" style="leaflet-popup-content-wrapper">
+	<a href="https://www.piersoft.it/covid19/focuscomuni.php" target="_blank" ><img src="focuscomuniok.png" width="200px" height="32px" title="mapcomuni" alt="mapcomuni"></a>
+	<div>
 	<div id="infodivfocus" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/focusdecessi.php" target="_blank" ><img src="tassimortalità.png" width="200px" title="mapnewcases" alt="mapnewcases"></a>
 
@@ -646,9 +661,9 @@ input[type=range]:focus::-ms-fill-upper {
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=3" ><img src="mapcasigiorno1.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/?incidenza=1" ><img src="mappatassinew.png" width="80px" title="mappatassi" alt="mappatassi"></a>';
-	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
+	<a href="http://www.piersoft.it/covid19/?incidenza=1" ><img src="mappatimreg.png" width="80px" title="mappareg" alt="mappreg"></a>';
+//	echo '<div id="logomappatimereg" style="leaflet-popup-content-wrapper">
+//	<a href="http://www.piersoft.it/covid19/index3.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 
 }else if (htmlspecialchars($_GET["incidenza"])=="3"){
 	echo '<div id="logomappa" style="leaflet-popup-content-wrapper">

@@ -21,7 +21,7 @@ $out = Array(
 );
 
 /* First row is a heading. This is our key. */
-$keys = fgetcsv($fh, 1000, ",");
+$keys = fgetcsv($fh, 2000, ",");
 $keys = array_flip($keys);
 $colonne=0;
 
@@ -51,10 +51,10 @@ while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
 	);
 	$colonne1=array_keys($keys);
 //echo count($colonne1);
-	for ($i=3; $i < count($colonne1); $i++) {
+	for ($i=6; $i < count($colonne1); $i++) {
 
 
-		$entry['properties'][$colonne1[$i]]=(int)$data[$i+3];
+		$entry['properties'][$colonne1[$i]]=(int)$data[$i];
 	//	array_push($entry['properties'],$data[$i]);
 	}
 	$out['features'][] = $entry;
@@ -107,7 +107,7 @@ foreach ($keys as $key => $value) {
 
 
 while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
-
+if(strpos($data[3],'.') !== false ) {
 	$entry = Array(
 		'type' => 'Feature',
 		'geometry' => Array(
@@ -126,13 +126,12 @@ while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
 //echo count($colonne1);
 	for ($i=1; $i < count($colonne1); $i++) {
 
-
-		$entry['properties'][$colonne1[$i]]=(int)$data[$i+2];
+ $entry['properties'][$colonne1[$i]]=(int)$data[$i+2];
 	//	array_push($entry['properties'],$data[$i]);
 	}
 	$out['features'][] = $entry;
 }
-
+}
 //var_dump($colonne);
 $json=json_encode($out);
 

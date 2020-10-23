@@ -4,7 +4,7 @@ if(isset($_GET['incidenza']))
 {
     // Do something
 }else{
-	$_GET['incidenza']=1;
+	$_GET['incidenza']=3;
 }
 
  ?>
@@ -174,6 +174,18 @@ font-family: Titillium Web, Arial, Sans-Serif;
 padding: 8px;
 font-size: 10px;
 top: 55px;
+left:42px;
+
+max-height: 45px;
+max-width: 150px;
+position: fixed;
+
+}
+#infodivfocuscom{
+font-family: Titillium Web, Arial, Sans-Serif;
+padding: 8px;
+font-size: 10px;
+top: 90px;
 left:42px;
 
 max-height: 45px;
@@ -482,7 +494,7 @@ overflow-x: hidden;
 	<?php
  if (htmlspecialchars($_GET["incidenza"])=="1")	echo 'Covid19 - Progressivo contagio Province.</br>Incidenza ogni 10000 residenti' ?>
  <?php
- if (htmlspecialchars($_GET["incidenza"])=="2")	echo 'Covid19 - Progressivo contagio Regioni.</br>Terapie Intensive ' ?>
+ if (htmlspecialchars($_GET["incidenza"])=="2")	echo 'Covid19 - Progressivo contagio Regioni.</br>Terapie Intensive (posti letto al 01.10.2020)' ?>
 
  <?php
  if (htmlspecialchars($_GET["incidenza"])=="3")	echo '<b>Covid19 - Progressivo contagio Regioni.</br>Nuovi attualmente positivi' ?>
@@ -498,6 +510,9 @@ overflow-x: hidden;
 </div>
 -->
 <div>
+	<div id="infodivfocuscom" style="leaflet-popup-content-wrapper">
+	<a href="https://www.piersoft.it/covid19/focuscomuni.php" target="_blank" ><img src="focuscomuniok.png" width="190px" height="32px" title="mapcomuni" alt="mapcomuni"></a>
+	<div>
 	<div id="infodivfocus" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/focusdecessi.php" target="_blank" ><img src="tassimortalità.png" width="190px" title="mapnewcases" alt="mapnewcases"></a>
 
@@ -508,8 +523,8 @@ overflow-x: hidden;
 	<a href="http://www.piersoft.it/covid19/?incidenza=1" ><img src="mappatassinew.png" width="80px" title="mappatassi" alt="mappatassi"></a>';
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=3" ><img src="mapcasigiorno1.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
-	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
+	//echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
+	//<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappatimereg" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/index3.php" ><img src="mappatimreg.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappadecessi" style="leaflet-popup-content-wrapper">
@@ -522,8 +537,8 @@ overflow-x: hidden;
 	<a href="http://www.piersoft.it/covid19/?incidenza=2" ><img src="mapternew1.png" width="80px" title="mappaterapiaintensiva" alt="mappaterapiaintensiva"></a>';
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=3" ><img src="mapcasigiorno1.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
-	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
+//	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
+//	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappatimereg" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/index3.php" ><img src="mappatimreg.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappadecessi" style="leaflet-popup-content-wrapper">
@@ -536,8 +551,8 @@ overflow-x: hidden;
 	<a href="http://www.piersoft.it/covid19/?incidenza=1" ><img src="mappatassinew.png" width="80px" title="mappatassi" alt="mappatassi"></a>';
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=2" ><img src="mapternew1.png" width="80px" title="mappaterapiaintensiva" alt="mappaterapiaintensiva"></a>';
-	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
+//	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
+//	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappatimereg" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/index3.php" ><img src="mappatimreg.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappadecessi" style="leaflet-popup-content-wrapper">
@@ -550,8 +565,8 @@ overflow-x: hidden;
 	<a href="http://www.piersoft.it/covid19/?incidenza=2" ><img src="mapternew1.png" width="80px" title="mappaterapiaintensiva" alt="mappaterapiaintensiva"></a>';
 	echo '<div id="logomappa2" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/?incidenza=3" ><img src="mapcasigiorno1.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
-	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
-	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
+//	echo '<div id="logomappatime" style="leaflet-popup-content-wrapper">
+//	<a href="http://www.piersoft.it/covid19/index2.php" ><img src="mappatime.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappatimereg" style="leaflet-popup-content-wrapper">
 	<a href="http://www.piersoft.it/covid19/index3.php" ><img src="mappatimreg.png" width="80px" title="mapnewcases" alt="mapnewcases"></a>';
 	echo '<div id="logomappadecessi" style="leaflet-popup-content-wrapper">
@@ -813,7 +828,12 @@ var f=5; //fattore di divisione per i colori
 						}
 							?>
 							 + '"></i> ' +
-	            (grades[i]*f1).toFixed(2) + (typeof grades[i+1] !== 'undefined' ? '&ndash;' + (grades[i+1]*f1).toFixed(2) + '<br>' : '+');
+	            (grades[i]*f1).toFixed(2) + (typeof grades[i+1] !== 'undefined' ? '&ndash;' + (grades[i+1]*f1).toFixed(2) + '<br>' : '+	<?php
+							if (htmlspecialchars($_GET["incidenza"])=="2"){
+									echo '(%)';
+								}
+								?>');
+
 	    }
 
 //(grades[i+1]*f1).toFixed(2)
@@ -861,6 +881,7 @@ var secondo="<?php if (htmlspecialchars($_GET["incidenza"])=="2" || htmlspecialc
 											 	 element.properties.note=newElement.note;
 											 	 element.properties.noteregioni=newElement.noteregioni;
 											 	 element.properties.incidenza10000=newElement.incidenza10000;
+
 												 element.properties.casi=newElement.value;
 												 element.properties.popolazione=newElement.popolazione;
 												 element.properties.postiletto=newElement.postiletto;
@@ -932,7 +953,7 @@ function addDataToMap() {
 	<?php echo "popupString += '<a href=\"filternew.php?regione='+ reg+'&data=terapia_intensiva\"\">Vai alla serie storica</a></br>';"; ?>
 }else{
 	<?php echo "popupString += '<div><iframe src=\"filternew.php?regione='+ reg +'&data=terapia_intensiva\"\" width=\"280\" scrolling=\"no\" scrolling=\"no\" height=\"320\" frameBorder=\"0\">prova</iframe></div>';";?>
-				popupString += '(*)Nota Bene: i posti letto Terap.Int. per la capienza dichiarata sono al 31.12.2019<br />';
+				popupString += '(*)Nota Bene: i posti letto Terap.Int. per la capienza dichiarata Piano Arcuri 09.10.2020<br />';
 }
 <?php
 			}else	if (htmlspecialchars($_GET["incidenza"])=="1"){
@@ -986,6 +1007,14 @@ function addDataToMap() {
 												//  }
 				popupString += '</div>';
 
+				if (feature.properties.prov_name =="Lecce"){
+				//	popupString += 'Note: <b>' + feature.properties.noteregioni + '</b><br />';
+
+
+						popupString += '<a href=\"https://bit.ly/comunilecce\" target=\"_blank\"><b>FOCUS PROVINCIA DI LECCE</b></a>';
+
+				popupString += '</div>';
+	}
 				if (document.body.clientWidth <= 767) {
 						layer.bindPopup(popupString, {
 				                                maxWidth: "200",
@@ -1028,11 +1057,11 @@ function addDataToMap() {
 		onEachFeature: function (feature, layer) {
 		//	console.log(feature.properties);
 			var popupString = '<div class="popup">';
-
-			popupString += '<b>' + feature.properties.incidenza10000 + '</b>';
+		// console.log(feature.properties["prop-5"]);
+			popupString += '<b>' + feature.properties["prop-5"] + '</b>';
 			popupString += '</div>';
 
-			layer.bindPopup('<div class="popup">Ogni 10000 abitanti, ci sono <b>'+feature.properties.incidenza10000+' </b>casi</div>');
+			layer.bindPopup('<div class="popup">Ogni 10000 abitanti, ci sono <b>'+feature.properties["prop-5"]+' </b>casi</div>');
 			layer.on({
 				mouseover: function(e)
 				{

@@ -21,7 +21,7 @@ $out = Array(
 );
 
 /* First row is a heading. This is our key. */
-$keys = fgetcsv($fh, 1000, ",");
+$keys = fgetcsv($fh, 5000, ",");
 $keys = array_flip($keys);
 $colonne=0;
 
@@ -32,8 +32,8 @@ foreach ($keys as $key => $value) {
 //echo $colonne;
 
 
-while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
-
+while (($data = fgetcsv($fh, 3000, ",")) !== FALSE) {
+if (strpos($data[3], '.') !== false) {
 	$entry = Array(
 		'type' => 'Feature',
 		'geometry' => Array(
@@ -45,22 +45,24 @@ while (($data = fgetcsv($fh, 1000, ",")) !== FALSE) {
 			'regione' => $data[2],
 			'popolazione' => $data[1],
 
+
 		)
 
 	);
 
 	$colonne1=array_keys($keys);
 //echo count($colonne1);
-	for ($i=1; $i < count($colonne1); $i++) {
+	for ($i=2; $i < count($colonne1); $i++) {
 
 
+//	if ($colonne1[$i] !==44)
 		$entry['properties'][$colonne1[$i]]=(int)$data[$i+3];
 
 	//	array_push($entry['properties'],$data[$i]);
 	}
 	$out['features'][] = $entry;
 }
-
+}
 //var_dump($colonne);
 $json=json_encode($out);
 
